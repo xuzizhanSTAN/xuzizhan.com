@@ -15,8 +15,11 @@ function scanArticles() {
     // 读取文件夹中的所有文件
     const files = fs.readdirSync(articlesDir);
     
-    // 过滤出HTML文件
-    const htmlFiles = files.filter(file => file.endsWith('.html'));
+    // 过滤出HTML文件，排除模板文件
+    const htmlFiles = files.filter(file => 
+        file.endsWith('.html') && 
+        !file.includes('template')
+    );
     console.log('HTML文件数量:', htmlFiles.length);
     
     // 如果没有找到HTML文件，创建一个空的示例
@@ -33,7 +36,6 @@ function scanArticles() {
         // 写入一个空示例JSON文件
         fs.writeFileSync(outputFile, JSON.stringify(emptyArticles, null, 2));
         console.log('创建了一个示例文章列表');
-        console.log('检查文件是否已创建:', fs.existsSync(outputFile));
         return;
     }
     
@@ -71,10 +73,8 @@ function scanArticles() {
     });
     
     // 写入JSON文件
-    // 确保文件被写入到网站根目录（即public目录或项目根目录）
-    const rootPath = path.join(__dirname, '../');
-    fs.writeFileSync(path.join(rootPath, 'articles-list.json'), JSON.stringify(articles, null, 2));
-    console.log(`已生成文章列表，保存到: ${path.join(rootPath, 'articles-list.json')}`);
+    fs.writeFileSync(outputFile, JSON.stringify(articles, null, 2));
+    console.log(`已生成文章列表，保存到: ${outputFile}`);
 }
 
 // 执行扫描
@@ -84,7 +84,7 @@ scanArticles();
 if (process.argv.includes('--watch')) {
     console.log('监视文章文件夹变化...');
     fs.watch(articlesDir, { recursive: true }, (eventType, filename) => {
-        if (filename) {
+        if (filename && filename.endsWith('.html')) {
             console.log(`检测到文件变化: ${filename}`);
             scanArticles();
         }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试导航功能</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: #f0f0f0;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>测试导航功能</h1>
+    <p>这个页面用于测试文章导航功能。</p>
+    
+    <div class="article-nav">
+        <!-- 导航链接将由JavaScript动态生成 -->
+    </div>
+    
+    <div id="debug-output"></div>
+    
+    <script>
+        // 简单的调试函数
+        function log(message) {
+            const debugOutput = document.getElementById('debug-output');
+            const logItem = document.createElement('div');
+            logItem.textContent = message;
+            debugOutput.appendChild(logItem);
+            console.log(message);
+        }
+        
+        // 测试导航功能
+        document.addEventListener('DOMContentLoaded', function() {
+            log('页面加载完成，开始测试导航功能');
+            
+            // 获取导航容器
+            const articleNav = document.querySelector('.article-nav');
+            if (!articleNav) {
+                log('错误：未找到导航容器');
+                return;
+            }
+            
+            // 模拟当前文章ID
+            const currentArticleId = 'super-ai';
+            log(`当前文章ID: ${currentArticleId}`);
+            
+            // 从JSON文件加载文章列表
+            fetch('../articles-list.json')
+                .then(response => {
+                    log(`获取文章列表响应状态: ${response.status}`);
+                    if (!response.ok) {
+                        throw new Error(`无法获取文章列表: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(articles => {
+                    log(`成功获取文章列表，文章数量: ${articles.length}`);
+                    log(`文章列表: ${JSON.stringify(articles)}`);
+                    
+                    // 过滤掉模板文章
+                    articles = articles.filter(article => !article.id.includes('template'));
+                    log(`过滤后的文章数量: ${articles.length}`);
+                    
+                    // 找到当前文章在列表中的位置
+                    const currentIndex = articles.findIndex(article => 
+                        article.id === currentArticleId || 
+                        article.url.includes(currentArticleId)
+                    );
+                    
+                    log(`当前文章索引: ${currentIndex}`);
+                    
+                    if (currentIndex === -1) {
+                        log('错误：当前文章未在列表中找到');
+                        return;
+                    }
+                    
+                    // 设置导航HTML
+                    let navHTML = '';
+                    
+                    // 根据文章位置设置导航
+                    if (currentIndex === 0) {
+                        log('处理最新文章导航');
+                        // 下一篇
+                        if (articles.length > 1) {
+                            const olderArticle = articles[1];
+                            navHTML += `<a href="../${olderArticle.url}" class="btn next-btn">下一篇：${olderArticle.title}</a>`;
+                        }
+                        navHTML += `<a href="../index.html#share" class="btn list-btn">返回文章列表</a>`;
+                    } else if (currentIndex === articles.length - 1) {
+                        log('处理最旧文章导航');
+                        // 上一篇
+                        const newerArticle = articles[currentIndex - 1];
+                        navHTML += `<a href="../${newerArticle.url}" class="btn back-btn">上一篇：${newerArticle.title}</a>`;
+                        navHTML += `<a href="../index.html#share" class="btn list-btn">返回文章列表</a>`;
+                    } else {
+                        log('处理中间文章导航');
+                        // 上一篇
+                        const newerArticle = articles[currentIndex - 1];
+                        navHTML += `<a href="../${newerArticle.url}" class="btn back-btn">上一篇：${newerArticle.title}</a>`;
+                        // 返回列表
+                        navHTML += `<a href="../index.html#share" class="btn list-btn">返回文章列表</a>`;
+                        // 下一篇
+                        const olderArticle = articles[currentIndex + 1];
+                        navHTML += `<a href="../${olderArticle.url}" class="btn next-btn">下一篇：${olderArticle.title}</a>`;
+                    }
+                    
+                    // 设置导航HTML
+                    articleNav.innerHTML = navHTML;
+                    log(`导航HTML已设置: ${navHTML}`);
+                })
+                .catch(error => {
+                    log(`错误: ${error.message}`);
+                });
+        });
+    </script>
+</body>
+</html> 

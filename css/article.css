@@ -81,6 +81,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.article-nav .btn {
+    margin: 5px;
 }
 
 .back-btn {
