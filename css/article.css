@@ -1,0 +1,139 @@
+/* 文章页面样式 */
+.article-hero {
+    height: 40vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+    padding-top: 80px;
+}
+
+.article-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.article-meta {
+    display: flex;
+    gap: 20px;
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+
+.article-content {
+    padding: 80px 0;
+}
+
+.article-body {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.article-intro {
+    font-size: 22px;
+    line-height: 1.6;
+    color: var(--secondary-color);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.article-body h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 50px 0 20px;
+    color: var(--primary-color);
+}
+
+.article-body h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 30px 0 15px;
+    color: var(--primary-color);
+}
+
+.article-body p {
+    margin-bottom: 20px;
+}
+
+.article-body blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--secondary-color);
+    text-align: left;
+}
+
+.article-footer {
+    max-width: 800px;
+    margin: 60px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.article-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-btn {
+    background-color: var(--light-gray);
+    color: var(--secondary-color);
+}
+
+.back-btn:hover {
+    background-color: #e5e5e7;
+    color: var(--primary-color);
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+    .article-hero h1 {
+        font-size: 36px;
+    }
+    
+    .article-body {
+        font-size: 16px;
+    }
+    
+    .article-intro {
+        font-size: 18px;
+    }
+    
+    .article-body h2 {
+        font-size: 28px;
+    }
+    
+    .article-body h3 {
+        font-size: 20px;
+    }
+    
+    .article-nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .article-nav .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 文章签名样式 */
+.article-signature {
+    text-align: right;
+    margin-bottom: 30px;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+.article-signature p {
+    margin: 5px 0;
+} 
