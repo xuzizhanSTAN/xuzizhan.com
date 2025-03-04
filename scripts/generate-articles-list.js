@@ -17,6 +17,25 @@ function scanArticles() {
     
     // 过滤出HTML文件
     const htmlFiles = files.filter(file => file.endsWith('.html'));
+    console.log('HTML文件数量:', htmlFiles.length);
+    
+    // 如果没有找到HTML文件，创建一个空的示例
+    if (htmlFiles.length === 0) {
+        console.log('没有找到HTML文件，创建一个空的示例文章列表');
+        const emptyArticles = [{
+            id: "example",
+            title: "示例文章",
+            date: "2023-01-01",
+            summary: "这是一个示例文章，请在articles目录中添加.html文件",
+            url: "articles/example.html"
+        }];
+        
+        // 写入一个空示例JSON文件
+        fs.writeFileSync(outputFile, JSON.stringify(emptyArticles, null, 2));
+        console.log('创建了一个示例文章列表');
+        console.log('检查文件是否已创建:', fs.existsSync(outputFile));
+        return;
+    }
     
     // 处理每个HTML文件
     htmlFiles.forEach(file => {
@@ -52,8 +71,10 @@ function scanArticles() {
     });
     
     // 写入JSON文件
-    fs.writeFileSync(outputFile, JSON.stringify(articles, null, 4), 'utf8');
-    console.log(`已生成文章列表，共 ${articles.length} 篇文章`);
+    // 确保文件被写入到网站根目录（即public目录或项目根目录）
+    const rootPath = path.join(__dirname, '../');
+    fs.writeFileSync(path.join(rootPath, 'articles-list.json'), JSON.stringify(articles, null, 2));
+    console.log(`已生成文章列表，保存到: ${path.join(rootPath, 'articles-list.json')}`);
 }
 
 // 执行扫描
@@ -62,8 +83,8 @@ scanArticles();
 // 监视文件夹变化
 if (process.argv.includes('--watch')) {
     console.log('监视文章文件夹变化...');
-    fs.watch(articlesDir, (eventType, filename) => {
-        if (filename && filename.endsWith('.html')) {
+    fs.watch(articlesDir, { recursive: true }, (eventType, filename) => {
+        if (filename) {
             console.log(`检测到文件变化: ${filename}`);
             scanArticles();
         }

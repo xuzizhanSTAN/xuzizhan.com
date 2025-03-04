@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const articlesGrid = document.querySelector('.articles-grid');
     if (!articlesGrid) return;
     
+    // 添加时间戳参数，防止浏览器缓存
+    const timestamp = new Date().getTime();
+    
     // 从JSON文件加载文章列表
-    fetch('articles-list.json')
+    fetch(`articles-list.json?t=${timestamp}`)
         .then(response => {
             if (response.ok) return response.json();
             throw new Error('无法获取文章列表');

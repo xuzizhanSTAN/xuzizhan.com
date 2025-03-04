@@ -5,9 +5,12 @@
   "scripts": {
     "generate-articles": "node scripts/generate-articles-list.js",
     "watch-articles": "node scripts/generate-articles-list.js --watch",
+    "dev": "npm run watch-articles & npx http-server -c-1",
+    "start": "npm run watch-articles & npx http-server -c-1",
     "build": "npm run generate-articles"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0-rc.12",
+    "http-server": "^14.1.1"
   }
 } 
