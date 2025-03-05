@@ -7,6 +7,29 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/article.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <style>
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .article-nav.three-buttons {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 10px;
+        }
+        .article-nav .back-btn {
+            justify-self: start;
+        }
+        .article-nav .list-btn {
+            justify-self: center;
+        }
+        .article-nav .next-btn {
+            justify-self: end;
+        }
+        /* 移除自定义按钮样式，因为我们现在使用btn类 */
+    </style>
 </head>
 <body>
     <header>

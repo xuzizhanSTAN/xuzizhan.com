@@ -1,0 +1,44 @@
+/* 文章导航按钮样式 - 与首页"阅读全文"按钮完全一致 */
+.article-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.article-nav.three-buttons {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+}
+.article-nav .back-btn {
+    justify-self: start;
+}
+.article-nav .list-btn {
+    justify-self: center;
+}
+.article-nav .next-btn {
+    justify-self: end;
+}
+/* 样式与首页"阅读全文"按钮完全一致 */
+.article-nav .btn {
+    /* 这里应该是从首页中找到的"阅读全文"按钮的确切样式 */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* 假设这是正确的颜色 */
+    color: white;
+    border: none;
+    border-radius: 30px; /* 假设这是正确的圆角 */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.article-nav .btn:hover {
+    background-color: #0056b3; /* 假设这是正确的悬停颜色 */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.article-nav .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} 
