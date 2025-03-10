@@ -1,0 +1,350 @@
+/* 电子商务页面样式 */
+:root {
+    --ecommerce-bg-color: #FFFFFF;
+    --ecommerce-light-gray: #F5F5F5;
+    --ecommerce-text-color: #000000;
+    --ecommerce-secondary-text: rgba(0, 0, 0, 0.5);
+    --ecommerce-border-color: #E6E6E6;
+    --ecommerce-accent-color: rgba(0, 0, 0, 0.8);
+    --ecommerce-inactive-color: rgba(0, 0, 0, 0.2);
+    --ecommerce-search-text: #828282;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--ecommerce-bg-color);
+}
+
+.ecommerce-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 80px 0 0;
+    position: relative;
+}
+
+/* 搜索栏 */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px 8px 12px;
+    background-color: var(--ecommerce-light-gray);
+    border-radius: 8px;
+    margin: 16px;
+    height: 40px;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.search-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ecommerce-search-text);
+}
+
+/* 快捷功能区 */
+.pills-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+
+.pills-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.pill {
+    border: 1px solid var(--ecommerce-border-color);
+    border-radius: 6px;
+    padding: 5px 10px;
+}
+
+.pill-content {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pill-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.pill-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ecommerce-text-color);
+    white-space: nowrap;
+}
+
+/* 横幅广告 */
+.banner {
+    margin: 16px;
+    height: 120px;
+    background-image: url('../images/ecommerce/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.banner-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ecommerce-text-color);
+    margin: 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--ecommerce-inactive-color);
+}
+
+.dot.selected {
+    background-color: var(--ecommerce-accent-color);
+}
+
+/* 分类和商品区域通用样式 */
+.section {
+    margin-bottom: 24px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chevron-container {
+    width: 24px;
+    height: 24px;
+    background-color: var(--ecommerce-light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chevron-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* 分类区域 */
+.categories-container {
+    display: flex;
+    gap: 24px;
+    padding: 8px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.categories-container::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-image {
+    width: 76px;
+    height: 76px;
+    border-radius: 38px;
+    overflow: hidden;
+}
+
+.category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ecommerce-text-color);
+    text-align: center;
+}
+
+/* 商品区域 */
+.products-container {
+    display: flex;
+    gap: 12px;
+    padding: 8px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.products-container::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 150px;
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.product-brand {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ecommerce-secondary-text);
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ecommerce-text-color);
+    margin: 0;
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ecommerce-text-color);
+}
+
+/* 推荐区域 */
+.recommendations-container {
+    display: flex;
+    gap: 12px;
+    padding: 8px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.recommendations-container::-webkit-scrollbar {
+    display: none;
+}
+
+.recommendation-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.recommendation-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 底部导航栏 */
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    height: 60px;
+    background-color: var(--ecommerce-bg-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px -0.5px 0px 0px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.tab-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 26px 8px;
+}
+
+.tab-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.tab-item.active .tab-icon {
+    opacity: 1;
+}
+
+.tab-item:not(.active) .tab-icon {
+    opacity: 0.5;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 480px) {
+    .ecommerce-container {
+        padding-top: 60px;
+    }
+    
+    .category-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+    }
+    
+    .product-card {
+        min-width: 130px;
+    }
+    
+    .product-image {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .recommendation-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* 确保底部有足够空间，不被底部导航栏遮挡 */
+footer {
+    margin-bottom: 70px;
+} 

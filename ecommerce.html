@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>figma mcp - 徐子瞻 xuzizhan</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/ecommerce.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">徐子瞻 xuzizhan</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#about">关于我</a></li>
+                    <li><a href="index.html#share">我的分享</a></li>
+                    <li><a href="index.html#contact">联系</a></li>
+                    <li><a href="ecommerce.html" class="active">figma mcp</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="ecommerce-container">
+        <!-- 搜索栏 -->
+        <div class="search-bar">
+            <img src="images/ecommerce/search.svg" alt="搜索" class="search-icon">
+            <span class="search-text">搜索</span>
+        </div>
+
+        <!-- 快捷功能区 -->
+        <div class="pills-container">
+            <div class="pill">
+                <div class="pill-content">
+                    <img src="images/ecommerce/favorite.svg" alt="收藏" class="pill-icon">
+                    <span class="pill-label">收藏夹</span>
+                </div>
+            </div>
+            <div class="pill">
+                <div class="pill-content">
+                    <img src="images/ecommerce/history.svg" alt="历史" class="pill-icon">
+                    <span class="pill-label">浏览历史</span>
+                </div>
+            </div>
+            <div class="pill">
+                <div class="pill-content">
+                    <img src="images/ecommerce/following.svg" alt="关注" class="pill-icon">
+                    <span class="pill-label">我的关注</span>
+                </div>
+            </div>
+            <div class="pill">
+                <div class="pill-content">
+                    <img src="images/ecommerce/orders.svg" alt="订单" class="pill-icon">
+                    <span class="pill-label">我的订单</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 横幅广告 -->
+        <div class="banner">
+            <h2 class="banner-title">限时特惠活动</h2>
+            <div class="pagination">
+                <div class="dot selected"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <!-- 分类区域 -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">热门分类</h2>
+                <div class="chevron-container">
+                    <img src="images/ecommerce/chevron_right.svg" alt="查看更多" class="chevron-icon">
+                </div>
+            </div>
+            <div class="categories-container">
+                <div class="category-item">
+                    <div class="category-image">
+                        <img src="images/ecommerce/category1.jpg" alt="分类1">
+                    </div>
+                    <span class="category-title">数码产品</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-image">
+                        <img src="images/ecommerce/category2.jpg" alt="分类2">
+                    </div>
+                    <span class="category-title">家居生活</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-image">
+                        <img src="images/ecommerce/category3.jpg" alt="分类3">
+                    </div>
+                    <span class="category-title">服饰鞋包</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-image">
+                        <img src="images/ecommerce/category4.jpg" alt="分类4">
+                    </div>
+                    <span class="category-title">美妆护肤</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 热门商品区域 -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">热门商品</h2>
+                <div class="chevron-container">
+                    <img src="images/ecommerce/chevron_right.svg" alt="查看更多" class="chevron-icon">
+                </div>
+            </div>
+            <div class="products-container">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ecommerce/product1.jpg" alt="商品1">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Apple</span>
+                        <h3 class="product-name">iPhone 15 Pro Max</h3>
+                        <span class="product-price">¥8999</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ecommerce/product2.jpg" alt="商品2">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Samsung</span>
+                        <h3 class="product-name">Galaxy S24 Ultra</h3>
+                        <span class="product-price">¥7999</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ecommerce/product3.jpg" alt="商品3">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-brand">Xiaomi</span>
+                        <h3 class="product-name">Xiaomi 14 Ultra</h3>
+                        <span class="product-price">¥5999</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 推荐区域 -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">为你推荐</h2>
+                <div class="chevron-container">
+                    <img src="images/ecommerce/chevron_right.svg" alt="查看更多" class="chevron-icon">
+                </div>
+            </div>
+            <div class="recommendations-container">
+                <div class="recommendation-image">
+                    <img src="images/ecommerce/product1.jpg" alt="推荐1">
+                </div>
+                <div class="recommendation-image">
+                    <img src="images/ecommerce/product2.jpg" alt="推荐2">
+                </div>
+                <div class="recommendation-image">
+                    <img src="images/ecommerce/product3.jpg" alt="推荐3">
+                </div>
+                <div class="recommendation-image">
+                    <img src="images/ecommerce/product1.jpg" alt="推荐4">
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="tab-bar">
+            <div class="tab-item active">
+                <img src="images/ecommerce/home_fill.svg" alt="首页" class="tab-icon">
+            </div>
+            <div class="tab-item">
+                <img src="images/ecommerce/discover.svg" alt="发现" class="tab-icon">
+            </div>
+            <div class="tab-item">
+                <img src="images/ecommerce/cart.svg" alt="购物车" class="tab-icon">
+            </div>
+            <div class="tab-item">
+                <img src="images/ecommerce/bell.svg" alt="通知" class="tab-icon">
+            </div>
+            <div class="tab-item">
+                <img src="images/ecommerce/person.svg" alt="我的" class="tab-icon">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 徐子瞻. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/nav.js"></script>
+</body>
+</html> 
